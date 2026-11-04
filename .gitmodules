@@ -27,3 +27,6 @@
 [submodule "abc"]
 	path = third_party/abc
 	url = https://github.com/amazon-far/abc.git
+[submodule "lab_tasks"]
+	path = third_party/lab_tasks
+	url = https://github.com/ognjen115/lab_tasks.git

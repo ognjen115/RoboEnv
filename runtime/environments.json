@@ -155,6 +155,25 @@
         "roboenv_runtime.adapters.abc.backend"
       ],
       "asset_instructions": "docs/abc.md"
+    },
+    "lab": {
+      "python": "3.12",
+      "lock": "runtime/locks/lab-resolved.txt",
+      "editables": [],
+      "source_only": [
+        "third_party/lab_tasks"
+      ],
+      "index_url": "https://pypi.org/simple",
+      "extra_indexes": [],
+      "known_blockers": [],
+      "import_probes": [
+        "mujoco",
+        "scipy.ndimage",
+        "cv2",
+        "PIL.Image",
+        "yaml"
+      ],
+      "asset_instructions": "third_party/lab_tasks/README.md"
     }
   }
 }

@@ -8,7 +8,8 @@
     "behavior",
     "isaaclab",
     "simple",
-    "abc"
+    "abc",
+    "lab"
   ],
   "sources": {
     "robocasa": {
@@ -221,6 +222,15 @@
           "sha256": "f5a1fb66d8ec9106363e01a589703cf53437ff52348a49086d48681bf923a420"
         }
       ]
+    },
+    "lab_tasks": {
+      "path": "third_party/lab_tasks",
+      "url": "https://github.com/ognjen115/lab_tasks.git",
+      "revision": "6b5dc23ee8f58b2f1c393492dce47fbb1d15fe26",
+      "backends": [
+        "lab"
+      ],
+      "patches": []
     }
   }
 }
