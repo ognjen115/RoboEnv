@@ -161,7 +161,7 @@
       "lock": "runtime/locks/lab-resolved.txt",
       "editables": [],
       "source_only": [
-        "third_party/lab_tasks"
+        "third_party/lab_sim"
       ],
       "index_url": "https://pypi.org/simple",
       "extra_indexes": [],
@@ -173,7 +173,7 @@
         "PIL.Image",
         "yaml"
       ],
-      "asset_instructions": "third_party/lab_tasks/README.md"
+      "asset_instructions": "third_party/lab_sim/README.md"
     }
   }
 }

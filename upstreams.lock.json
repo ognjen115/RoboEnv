@@ -223,10 +223,10 @@
         }
       ]
     },
-    "lab_tasks": {
-      "path": "third_party/lab_tasks",
-      "url": "https://github.com/ognjen115/lab_tasks.git",
-      "revision": "6b5dc23ee8f58b2f1c393492dce47fbb1d15fe26",
+    "lab_sim": {
+      "path": "third_party/lab_sim",
+      "url": "https://github.com/ognjen115/lab-sim.git",
+      "revision": "96c2a6c85a0dd236dcd1e2f6994506bbc36afcec",
       "backends": [
         "lab"
       ],
