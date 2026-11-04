@@ -28,6 +28,18 @@ NATIVE_LIMIT_NOTES["lab"] = (
 )
 
 
+def write_world(directory):
+    """The world device's driver and access, as in RoboTwin's catalog (write_rig omits them)."""
+    from roboenv.devices.export import driver_access, write_driver
+
+    path = directory / "profile.yaml"
+    profile = yaml.safe_load(path.read_text())
+    actions = ["read", "wait", "load", "unload", "status"]
+    profile["access"] = driver_access("world", "world", actions, "http://127.0.0.1:8123")
+    write_driver(directory, "world")
+    path.write_text(yaml.safe_dump(profile, sort_keys=False))
+
+
 def task_file(task, rig, sentence):
     return {
         "id": f"lab/{task.replace('_', '-')}",
@@ -51,6 +63,13 @@ def main():
     ap.add_argument("--out", type=Path, default=ROOT / "catalog", help="the public catalog root")
     ap.add_argument("--bindings-out", type=Path, default=None)
     args = ap.parse_args()
+    from roboenv_runtime.paths import lab_root
+
+    known = {t for tasks in RIGS.values() for t in tasks}
+    present = sorted(p.parent.name for p in (lab_root() / "tasks").glob("*/task.yaml"))
+    for task in present:
+        if task not in known:
+            print(f"WARNING: lab-sim task {task} has no rig; add it to RIGS in adapters/lab/rig.py")
     for rig, tasks in RIGS.items():
         facts = None
         for task in tasks:
@@ -71,6 +90,7 @@ def main():
                 yaml.safe_dump(task_file(task, rig, sentence), sort_keys=False, width=110)
             )
         write_rig(args.out, rig, "lab", rig, facts, bindings_out=args.bindings_out)
+        write_world(args.out / "robots" / "lab" / rig / "devices" / "world")
         print(f"{rig}: {len(facts)} devices, tasks {tasks}")
 
 
