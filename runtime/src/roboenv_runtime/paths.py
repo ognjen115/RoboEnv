@@ -64,6 +64,14 @@ def robodojo_root() -> Path:
     return repo_root() / "third_party" / "RoboDojo"
 
 
+def lab_root() -> Path:
+    """The lab cell's simulator (submodule ``third_party/lab_sim``, ognjen115/lab-sim)."""
+    override = _env_path("ROBOENV_LAB_ROOT")
+    if override is not None:
+        return override
+    return repo_root() / "third_party" / "lab_sim"
+
+
 def robotwin_root() -> Path:
     """The RoboTwin 2.0 checkout (assets are resolved relative to it)."""
     override = _env_path("ROBOTWIN_ROOT")

@@ -18,7 +18,7 @@ EMPTY = {"type": "object", "properties": {}, "additionalProperties": False}
 
 @control_binding
 def bind(spec, root, context):
-    if context.backend not in {"robotwin", "robodojo", "behavior", "abc"}:
+    if context.backend not in {"robotwin", "robodojo", "behavior", "abc", "lab"}:
         raise ValueError("Source-backed device binding requires its native backend")
     world = context.native._env
     if context.embodiment != world.embodiment or spec.config:
@@ -91,6 +91,7 @@ def bind(spec, root, context):
             "velocity": ("velocities",),
             "gripper": ("aperture_m",),
             "joint": ("positions", "velocities", "efforts"),
+            "suction": ("positions", "velocities", "object_detected"),
         }[definition.type]
         register(
             "read",

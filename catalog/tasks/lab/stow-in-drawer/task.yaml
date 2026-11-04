@@ -1,0 +1,12 @@
+id: lab/stow-in-drawer
+robot: lab/lab-xarm7-tray
+instruction: open the drawer by pulling its golden knob with the left arm's jaw gripper, pick the red cylinder with
+  the right arm's vacuum gripper, using its suction cups, and place it in the open drawer, then close the drawer
+  with the left arm
+seed: 1
+budget_mode: practice
+execution_mode: stepped
+stop_on_success: false
+backend_kwargs:
+  task: stow_in_drawer
+  rig: lab-xarm7-tray

@@ -1,0 +1,11 @@
+id: lab/handover-cup
+robot: lab/lab-xarm7-cup
+instruction: pick up the cup with the left arm, hand it over to the right arm, and place it on the table in front
+  of the right arm
+seed: 1
+budget_mode: practice
+execution_mode: stepped
+stop_on_success: false
+backend_kwargs:
+  task: handover_cup
+  rig: lab-xarm7-cup

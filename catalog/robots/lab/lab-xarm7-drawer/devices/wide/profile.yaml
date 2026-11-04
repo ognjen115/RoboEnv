@@ -1,0 +1,73 @@
+name: wide
+type: rgbd
+intrinsics:
+  calibrated_at: null
+  color:
+    distortion:
+      model: none
+    fov:
+      horizontal_deg: 76.93897229247918
+      vertical_deg: 61.58354776879501
+    fps: null
+    height: 480
+    image_format: png
+    pixel_format: rgb8
+    projection:
+      cx: 320.0
+      cy: 240.0
+      fx: 402.7352000000001
+      fy: 402.7352000000001
+      model: pinhole
+      skew: 0
+    width: 640
+  depth:
+    fps: null
+    height: 480
+    image_format: pgm16_be
+    invalid_value: 0
+    pixel_format: uint16
+    quantity: z
+    registration: color
+    reliable_range_m: ???
+    scale_m_per_unit: 0.001
+    valid_range_m:
+      max: 65.535
+      min: 0.001
+    width: 640
+  method: introspection
+  source: introspected
+extrinsics:
+  calibrated_at: null
+  method: introspection
+  mount:
+    parent: world
+    parent_frame: world
+    rotation_xyzw:
+    - -0.5855788842782403
+    - 0.6292408235285637
+    - -0.41899153025970065
+    - 0.29257384343645654
+    translation_m:
+    - -0.37619
+    - 0.28795
+    - 1.01753
+  source: introspected
+access:
+  source: user
+  method: unknown
+  calibrated_at: null
+  connection:
+    kind: url
+    url: http://127.0.0.1:8123
+    camera: wide
+  driver:
+    entry: driver.py
+    persistent: true
+    actions:
+    - load
+    - unload
+    - status
+    - read
+meta:
+  created_at: '2026-09-09T00:00:00Z'
+  updated_at: '2026-09-09T00:00:00Z'

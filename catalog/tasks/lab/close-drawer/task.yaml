@@ -1,0 +1,10 @@
+id: lab/close-drawer
+robot: lab/lab-xarm7-drawer
+instruction: close the open drawer by pushing it shut with the left arm's gripper
+seed: 1
+budget_mode: practice
+execution_mode: stepped
+stop_on_success: false
+backend_kwargs:
+  task: close_drawer
+  rig: lab-xarm7-drawer

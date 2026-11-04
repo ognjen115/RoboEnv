@@ -161,6 +161,7 @@ BUILTIN_ADAPTERS: dict[str, str] = {
     "isaaclab": "roboenv_runtime.adapters.isaaclab",
     "simple": "roboenv_runtime.adapters.simple",
     "behavior": "roboenv_runtime.adapters.behavior",
+    "lab": "roboenv_runtime.adapters.lab",
 }
 """Adapter name -> module that registers it (imported on first use)."""
 
