@@ -17,7 +17,9 @@ from roboenv.tasks.artifacts import Bundle
 from roboenv.tasks.instructions import robocasa_instruction, robodojo_instruction
 from roboenv.tasks.model import Task
 
-BACKENDS = ("abc", "libero", "robocasa", "robotwin", "robodojo", "behavior", "isaaclab", "simple")
+BACKENDS = (
+    "abc", "libero", "robocasa", "robotwin", "robodojo", "behavior", "isaaclab", "simple", "lab",
+)
 ROBOTS = {
     "simple": "simple/simple-g1",
     "libero": "libero/libero-panda-tabletop",
@@ -149,6 +151,32 @@ def _robotwin(root, issues):
         )
 
 
+def _lab(root, issues):
+    """The lab cell's tasks (third_party/lab_sim/tasks/*/task.yaml): stepped practice."""
+    from roboenv.tasks.lab import RIGS
+
+    rigs = {task: rig for rig, tasks in RIGS.items() for task in tasks}
+    for source in sorted((root / "third_party/lab_sim/tasks").glob("*/task.yaml")):
+        name = source.parent.name
+        sentence = (yaml.safe_load(source.read_text()) or {}).get("sentence")
+        if name not in rigs or not isinstance(sentence, str) or not sentence.strip():
+            issues.append({"backend": "lab", "task": name,
+                           "reason": "task lacks a rig in roboenv.tasks.lab or a sentence"})
+            continue
+        yield (
+            Task(
+                id=f"lab/{task_name(name)}",
+                robot=f"lab/{rigs[name]}",
+                instruction=sentence.strip(),
+                seed=1,
+                budget_mode="practice",
+                execution_mode="stepped",
+                backend_kwargs={"task_name": name, "rig": rigs[name]},
+            ),
+            source,
+        )
+
+
 def _robodojo(root, issues):
     base = root / "third_party/RoboDojo/task/RoboDojo"
     for config in sorted((base / "config").glob("*.yml")):
@@ -220,6 +248,7 @@ DISCOVERERS = {
     "robotwin": _robotwin,
     "robodojo": _robodojo,
     "behavior": _behavior,
+    "lab": _lab,
 }
 
 

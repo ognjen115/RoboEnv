@@ -147,6 +147,23 @@
           "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b"
         }
       ]
+    },
+    "lab_sim": {
+      "revision": "96c2a6c85a0dd236dcd1e2f6994506bbc36afcec",
+      "notices": [
+        {
+          "path": "assets/ufactory_vacuum_gripper/LICENSE",
+          "sha256": "685e81e0cd30124e24e834ea2bf39bfead4efc9907d021bc9d1ae0f2dcea1431"
+        },
+        {
+          "path": "assets/ufactory_xarm7/LICENSE",
+          "sha256": "4fe659325706d0fc41592c8743d085a0bdf778056249f2a108943d22be916fb2"
+        },
+        {
+          "path": "assets/ufactory_xarm_gripper/LICENSE",
+          "sha256": "685e81e0cd30124e24e834ea2bf39bfead4efc9907d021bc9d1ae0f2dcea1431"
+        }
+      ]
     }
   }
 }

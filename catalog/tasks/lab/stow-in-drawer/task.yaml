@@ -8,5 +8,5 @@ budget_mode: practice
 execution_mode: stepped
 stop_on_success: false
 backend_kwargs:
-  task: stow_in_drawer
+  task_name: stow_in_drawer
   rig: lab-xarm7-tray

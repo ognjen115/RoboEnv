@@ -7,5 +7,5 @@ budget_mode: practice
 execution_mode: stepped
 stop_on_success: false
 backend_kwargs:
-  task: handover_cup
+  task_name: handover_cup
   rig: lab-xarm7-cup

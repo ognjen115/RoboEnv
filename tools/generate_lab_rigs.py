@@ -49,7 +49,7 @@ def task_file(task, rig, sentence):
         "budget_mode": "practice",
         "execution_mode": "stepped",
         "stop_on_success": False,
-        "backend_kwargs": {"task": task, "rig": rig},
+        "backend_kwargs": {"task_name": task, "rig": rig},
     }
 
 

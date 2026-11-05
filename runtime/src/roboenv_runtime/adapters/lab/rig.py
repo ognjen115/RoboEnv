@@ -7,6 +7,7 @@ scene cameras; tasks with the same combination share a rig and its device catalo
 
 import numpy as np
 from roboenv.devices.model import local_frame
+from roboenv.tasks.lab import RIGS, rig_of  # noqa: F401  (the rigs are shared with task discovery)
 
 from roboenv_runtime.adapters.urdf_geometry import (
     gripper_intrinsics,
@@ -16,13 +17,6 @@ from roboenv_runtime.adapters.urdf_geometry import (
 )
 from roboenv_runtime.bindings.backends.robocasa.camera import intrinsics as camera_intrinsics
 
-# rig -> the tasks that use it (same grippers, arm spacing and scene cameras)
-RIGS = {
-    "lab-xarm7-drawer": ["open_drawer", "close_drawer"],
-    "lab-xarm7-cup": ["pour_from_cup", "handover_cup"],
-    "lab-xarm7-tray": ["place_in_drawer", "stow_in_drawer"],
-    "lab-xarm7-bin": ["clear_bin"],
-}
 # MuJoCo camera axes (x right, y up, looking -z) -> OpenCV optical (x right, y down, z forward)
 OPTICAL = np.diag([1.0, -1.0, -1.0, 1.0])
 JAW_DESCRIPTION = (
@@ -30,13 +24,6 @@ JAW_DESCRIPTION = (
     "base's y axis. "
     "Aperture is the measured separation of the finger pads; it does not indicate a grasp."
 )
-
-
-def rig_of(task):
-    for rig, tasks in RIGS.items():
-        if task in tasks:
-            return rig
-    raise ValueError(f"no lab rig declares task {task!r}")
 
 
 def _quat_xyzw(q):

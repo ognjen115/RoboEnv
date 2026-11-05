@@ -17,7 +17,8 @@ def test_exported_actuators_delegate_limits_and_keep_only_known_ratings(catalog_
         control = profile["intrinsics"].get("control")
         if control is None:
             continue
-        if profile["type"] == "gripper":
+        if profile["type"] in ("gripper", "suction"):
+            # Kinex's gripper and suction controls are strict schemas without limit_handling
             assert "limit_handling" not in control, path
             if control["mode"] == "position":
                 assert control["bounds"] == {"min": 0, "max": 1}, path

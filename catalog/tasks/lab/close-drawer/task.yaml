@@ -6,5 +6,5 @@ budget_mode: practice
 execution_mode: stepped
 stop_on_success: false
 backend_kwargs:
-  task: close_drawer
+  task_name: close_drawer
   rig: lab-xarm7-drawer

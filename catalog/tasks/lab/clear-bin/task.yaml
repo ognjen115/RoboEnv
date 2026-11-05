@@ -7,5 +7,5 @@ budget_mode: practice
 execution_mode: stepped
 stop_on_success: false
 backend_kwargs:
-  task: clear_bin
+  task_name: clear_bin
   rig: lab-xarm7-bin

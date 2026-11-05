@@ -16,16 +16,16 @@ class LabAdapter(NativeDeviceAdapter):
     embodiment = "lab-xarm7"
 
     def __init__(
-        self, task="open_drawer", rig=None, *, stop_on_success=False, max_steps=None, **kwargs
+        self, task_name="open_drawer", rig=None, *, stop_on_success=False, max_steps=None, **kwargs
     ):
         if kwargs:
             raise ValueError(f"unsupported lab backend arguments: {sorted(kwargs)}")
         self._set_stop_on_success(stop_on_success)
         from .devices import LabDevices
 
-        rig = rig or rig_of(task)
+        rig = rig or rig_of(task_name)
         self.embodiment = rig
-        self._env = LabDevices(task, rig, max_steps=max_steps)
+        self._env = LabDevices(task_name, rig, max_steps=max_steps)
 
     def goal(self):
         return str(self._env.spec.get("sentence") or "")
