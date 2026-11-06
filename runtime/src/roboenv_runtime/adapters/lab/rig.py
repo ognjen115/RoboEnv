@@ -1,8 +1,8 @@
 """Rig facts of the lab cell, read from the compiled MuJoCo model of a task's world (no URDF).
 
 Two UFACTORY xArm 7 arms on one desk, each with a jaw gripper or a vacuum cup and a wrist RGB-D
-camera, plus the task's fixed scene cameras. A rig is one combination of grippers, arm spacing and
-scene cameras; tasks with the same combination share a rig and its device catalog.
+camera, plus the standard cell's fixed camera (right_fixed). Every task stands in the standard cell, so a rig is
+one pair of grippers; tasks with the same pair share a rig and its device catalog.
 """
 
 import numpy as np

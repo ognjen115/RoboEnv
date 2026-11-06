@@ -199,7 +199,7 @@ def live_checks():
         cam, _ = call("device", "left_camera", "read", "{}")
         profile = yaml.safe_load(
             (
-                ROOT / "catalog/robots/lab/lab-xarm7-tray/devices/left_camera/profile.yaml"
+                ROOT / "catalog/robots/lab/lab-xarm7-jaw-vacuum/devices/left_camera/profile.yaml"
             ).read_text()
         )["intrinsics"]
         from PIL import Image
@@ -230,7 +230,8 @@ def live_checks():
         )
         leaks = [
             w
-            for w in ("qpos", "puck", "part_pose", "goal", "verdict", "drawer_drawer")
+            for w in ("qpos", "puck", "part_pose", "goal", "verdict", "drawer_drawer",
+                      "dyaw", "dx_m", "depth_noise_scale", "randomize")  # the seed's draw stays private
             if w in public
         ]
         check("public reads and describe carry no private scene state", not leaks, str(leaks))
