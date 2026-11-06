@@ -11,6 +11,9 @@ import hashlib
 import json
 import sys
 
+import os
+from pathlib import Path
+
 import numpy as np
 import yaml
 
@@ -56,6 +59,8 @@ class LabDevices:
         self.seed = seed
         self.cell = runner.build_world(self.spec, seed)
         self.cell.budget_t = float("inf")  # RoboEnv's executor owns the horizon (frame_limit)
+        if os.environ.get("LAB_RECORD_DIR"):  # owner-side recording: the trajectory for the film, every tick
+            self.cell.record_every = 2
         self._jaw_half_max = float(tspec.JAW_HALF_MAX)
         self.device_facts, self.rig_frames = describe(self.cell, self.embodiment)
         self.control_interval = 1.0 / self.cell.ctrl_hz
@@ -107,9 +112,32 @@ class LabDevices:
 
     def close(self):
         if self.cell is not None:
+            if os.environ.get("LAB_RECORD_DIR") and getattr(self.cell, "_traj", None):
+                self._write_recording(Path(os.environ["LAB_RECORD_DIR"]))
             self.cell.close()
         self.cell = None
         self.control = None
+
+    def _write_recording(self, out):
+        """The episode as lab-sim records a run, for the owner only (LAB_RECORD_DIR, never the agent's devices):
+        telemetry.npz (every control tick), episode.yaml (what the seed drew) and film.mp4 (the task's film
+        cameras)."""
+        import yaml
+
+        out.mkdir(parents=True, exist_ok=True)
+        tele = self.cell.telemetry()
+        if tele:
+            np.savez_compressed(out / "telemetry.npz", **tele)
+        draw = getattr(self.cell, "draw", None) or {}
+        if draw:
+            (out / "episode.yaml").write_text(
+                yaml.safe_dump({"task": self.task_name, **draw}, sort_keys=False)
+            )
+        try:
+            fixed = list((self.spec.get("sim") or {}).get("film_cameras") or [])
+            self.cell.render_film(out / "film.mp4", fps=10, fixed=fixed)
+        except Exception as exc:  # a film that fails leaves the rest
+            (out / "film.error.txt").write_text(f"{type(exc).__name__}: {exc}\n")
 
     # -- control -----------------------------------------------------------------------------------
     def _tool_target(self, name):
