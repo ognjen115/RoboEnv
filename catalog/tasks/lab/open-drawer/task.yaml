@@ -1,5 +1,5 @@
 id: lab/open-drawer
-robot: lab/lab-xarm7-drawer
+robot: lab/lab-xarm7-jaw-jaw
 instruction: open the drawer by pulling its golden knob with the left arm's gripper
 seed: 1
 budget_mode: practice
@@ -7,4 +7,4 @@ execution_mode: stepped
 stop_on_success: false
 backend_kwargs:
   task_name: open_drawer
-  rig: lab-xarm7-drawer
+  rig: lab-xarm7-jaw-jaw

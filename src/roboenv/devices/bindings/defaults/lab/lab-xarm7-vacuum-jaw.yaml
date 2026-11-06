@@ -1,0 +1,28 @@
+schema_version: roboenv/bindings/1
+backend: lab
+embodiment: lab-xarm7-vacuum-jaw
+devices:
+  left_arm:
+    binding: lab.device/1
+    entity: left_arm
+  left_camera:
+    binding: lab.device/1
+    entity: left_camera
+  left_suction:
+    binding: lab.device/1
+    entity: left_suction
+  right_arm:
+    binding: lab.device/1
+    entity: right_arm
+  right_camera:
+    binding: lab.device/1
+    entity: right_camera
+  right_fixed:
+    binding: lab.device/1
+    entity: right_fixed
+  right_gripper:
+    binding: lab.device/1
+    entity: right_gripper
+  world:
+    binding: lab.device/1
+    entity: world

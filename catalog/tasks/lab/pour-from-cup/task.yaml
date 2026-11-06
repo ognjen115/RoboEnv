@@ -1,5 +1,5 @@
 id: lab/pour-from-cup
-robot: lab/lab-xarm7-cup
+robot: lab/lab-xarm7-jaw-jaw
 instruction: pick up the cup using the right arm with the jaw gripper and pour the content of the cup into the black
   box on the table
 seed: 1
@@ -8,4 +8,4 @@ execution_mode: stepped
 stop_on_success: false
 backend_kwargs:
   task_name: pour_from_cup
-  rig: lab-xarm7-cup
+  rig: lab-xarm7-jaw-jaw

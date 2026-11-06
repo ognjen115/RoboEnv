@@ -1,5 +1,5 @@
 id: lab/clear-bin
-robot: lab/lab-xarm7-bin
+robot: lab/lab-xarm7-vacuum-jaw
 instruction: clear the bin by picking up the red cylinders using the left arm with the vacuum gripper (suction cups)
   and place them on top of each other on the desk, left of the bin
 seed: 1
@@ -8,4 +8,4 @@ execution_mode: stepped
 stop_on_success: false
 backend_kwargs:
   task_name: clear_bin
-  rig: lab-xarm7-bin
+  rig: lab-xarm7-vacuum-jaw

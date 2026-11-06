@@ -1,5 +1,5 @@
 id: lab/place-in-drawer
-robot: lab/lab-xarm7-tray
+robot: lab/lab-xarm7-jaw-vacuum
 instruction: pick the red cylinder with the right arm's vacuum gripper, using its suction cups, and place it in
   the open drawer
 seed: 1
@@ -8,4 +8,4 @@ execution_mode: stepped
 stop_on_success: false
 backend_kwargs:
   task_name: place_in_drawer
-  rig: lab-xarm7-tray
+  rig: lab-xarm7-jaw-vacuum
