@@ -42,5 +42,6 @@ class LabAdapter(NativeDeviceAdapter):
             detail={
                 "control_protocol": "absolute_joint_position_20hz",
                 "task": self._env.task_name,
+                "goal": self._env.goal_detail(),
             },
         )

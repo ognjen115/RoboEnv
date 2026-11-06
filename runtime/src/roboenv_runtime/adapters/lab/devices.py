@@ -235,3 +235,9 @@ class LabDevices:
 
     def task_completed(self):
         return bool(self.cell is not None and self.cell.goal_state().get("ok"))
+
+    def goal_detail(self):
+        """The task goal's own result, every check of it (owner-only: the verdict's detail, never a device)."""
+        if self.cell is None:
+            return {}
+        return json.loads(json.dumps(self.cell.goal_state(), default=float))
