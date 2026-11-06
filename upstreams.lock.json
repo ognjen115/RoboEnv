@@ -226,7 +226,7 @@
     "lab_sim": {
       "path": "third_party/lab_sim",
       "url": "https://github.com/ognjen115/lab-sim.git",
-      "revision": "bc6bd952f51538c92435a95527120a76e6bd4f34",
+      "revision": "f768dff116e6de4e045f7261ce47ea307964d675",
       "backends": [
         "lab"
       ],
