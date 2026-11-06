@@ -34,6 +34,7 @@ SOURCES = {
         "third_party/RoboDojo/third_party/curobo",
     ],
     "behavior": ["third_party/BEHAVIOR-1K"],
+    "lab": ["third_party/lab_sim"],
 }
 EXTERNAL = {
     "abc": ["third_party/abc/abc_sim/models/assets"],
@@ -44,6 +45,7 @@ EXTERNAL = {
     "robocasa": ["third_party/robocasa/robocasa/models/assets"],
     "robodojo": ["third_party/RoboDojo/Assets"],
     "behavior": ["third_party/BEHAVIOR-1K/datasets"],
+    "lab": [],  # the arm and gripper models ship inside lab-sim (assets/), staged with its source
 }
 
 

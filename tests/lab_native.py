@@ -230,8 +230,19 @@ def live_checks():
         )
         leaks = [
             w
-            for w in ("qpos", "puck", "part_pose", "goal", "verdict", "drawer_drawer",
-                      "dyaw", "dx_m", "depth_noise_scale", "randomize")  # the seed's draw stays private
+            for w in (
+                "qpos",
+                "puck",
+                "part_pose",
+                "goal",
+                "verdict",
+                "drawer_drawer",
+                # the seed's draw stays private
+                "dyaw",
+                "dx_m",
+                "depth_noise_scale",
+                "randomize",
+            )
             if w in public
         ]
         check("public reads and describe carry no private scene state", not leaks, str(leaks))
