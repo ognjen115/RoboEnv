@@ -583,7 +583,8 @@ def main():
     parser.add_argument(
         "backend",
         choices=(
-            "abc", "libero", "robocasa", "robotwin", "robodojo", "behavior", "isaaclab", "simple"
+            "abc", "libero", "robocasa", "robotwin", "robodojo", "behavior", "isaaclab", "simple",
+            "lab",
         ),
     )
     parser.add_argument(
