@@ -39,8 +39,15 @@ intrinsics:
     - 1.0
     - 0.0
     description: 'UFACTORY xArm parallel jaw: two fingers on four-bar linkages close
-      symmetrically along the base''s y axis. Aperture is the measured separation
-      of the finger pads; it does not indicate a grasp.'
+      symmetrically along the base''s y axis. Each finger carries the lab''s printed
+      sleeve: a 17 x 25 x 60 mm channel pushed over the finger, a 2 x 25 x 55 mm grip
+      pad along its inner face and a rounded tip (15 mm radius); the pads meet when
+      the jaw closes. The TCP is at the pads'' centre, 153 mm from the flange; the
+      sleeve tips reach 30 mm below the TCP open and 42 mm closed (the linkage swings
+      them toward the tips); the stock knuckles above the sleeves reach 87 mm from
+      the tool axis, 45-100 mm above the TCP. Opening between the pads is 0-85 mm.
+      Aperture is the measured separation of the finger pads; it does not indicate
+      a grasp.'
   method: introspection
   source: introspected
   stop:
