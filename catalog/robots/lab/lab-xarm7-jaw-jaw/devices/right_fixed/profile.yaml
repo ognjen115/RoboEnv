@@ -6,8 +6,8 @@ intrinsics:
     distortion:
       model: none
     fov:
-      horizontal_deg: 70.26086518546528
-      vertical_deg: 43.185152421359696
+      horizontal_deg: 70.260865185
+      vertical_deg: 43.185152421
     fps: null
     height: 360
     image_format: png
@@ -15,8 +15,8 @@ intrinsics:
     projection:
       cx: 320.0
       cy: 180.0
-      fx: 454.8002624511719
-      fy: 454.8002624511719
+      fx: 454.800262451
+      fy: 454.800262451
       model: pinhole
       skew: 0
     width: 640
@@ -43,14 +43,14 @@ extrinsics:
     parent: world
     parent_frame: world
     rotation_xyzw:
-    - -0.9076611584031278
-    - -0.054852678244617425
-    - 0.02222614939622254
-    - 0.41550981155527633
+    - -0.907661158
+    - -0.054852678
+    - 0.022226149
+    - 0.415509812
     translation_m:
-    - 0.8490529509435132
-    - -0.7745164041194811
-    - 0.8409053680693517
+    - 0.849052951
+    - -0.774516404
+    - 0.840905368
   source: introspected
 access:
   source: user
