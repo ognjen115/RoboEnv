@@ -223,7 +223,19 @@ def describe(cell, rig):
     for pub in cell._cams:
         if not pub.endswith("_wrist"):
             facts[pub] = _camera(cell, pub, "world", np.eye(4))
-    return facts, frames
+    return _rounded(facts), frames
+
+
+def _rounded(v, nd=9):
+    """Every number to 1e-9 (a nanometre, a nanoradian): the frames are products of the episode's settled world
+    poses, and their last-bit noise would make the same rig's description differ between tasks."""
+    if isinstance(v, dict):
+        return {k: _rounded(x, nd) for k, x in v.items()}
+    if isinstance(v, (list, tuple)):
+        return type(v)(_rounded(x, nd) for x in v)
+    if isinstance(v, float):
+        return round(v, nd) + 0.0
+    return v
 
 
 def verify(cell, facts, frames, *, atol=1e-6):
