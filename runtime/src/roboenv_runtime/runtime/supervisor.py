@@ -983,7 +983,10 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--worker-module", default="roboenv_runtime.runtime.worker")
     parser.add_argument("--worker-arg", action="append", default=[])
     parser.add_argument("--worker-startup-timeout", type=float, default=900.0)
-    parser.add_argument("--terminate-grace", type=float, default=10.0)
+    # ROBOENV_TERMINATE_GRACE_S: how long a stopping worker may take to close its world (a backend that writes a
+    # recording as it closes, e.g. the lab backend's film with LAB_RECORD_DIR, needs longer than the default 10 s)
+    parser.add_argument("--terminate-grace", type=float,
+                        default=float(os.environ.get("ROBOENV_TERMINATE_GRACE_S", "10")))
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, help="HTTP port; 0 selects a free port")
     return parser
