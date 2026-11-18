@@ -149,7 +149,7 @@
       ]
     },
     "lab_sim": {
-      "revision": "fdeb505ca8be09730210e8a14469da578f1ca20a",
+      "revision": "e87cb6ce61a8cf64af200fc84c407c658076a430",
       "notices": [
         {
           "path": "assets/ufactory_vacuum_gripper/LICENSE",
