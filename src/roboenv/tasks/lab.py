@@ -6,9 +6,12 @@ share a rig and its device catalog. A new lab-sim task needs an entry here.
 
 # the standard cell (arms 0.72 m apart, the right fixed camera): one rig per gripper pair
 RIGS = {
-    "lab-xarm7-jaw-jaw": ["open_drawer", "close_drawer", "pour_from_cup", "handover_cup"],
+    "lab-xarm7-jaw-jaw": [
+        "open_drawer", "close_drawer", "pour_from_cup", "handover_cup", "handover_pour",
+        "sort_fruit_veg",
+    ],
     "lab-xarm7-jaw-vacuum": ["place_in_drawer", "stow_in_drawer"],
-    "lab-xarm7-vacuum-jaw": ["clear_bin"],
+    "lab-xarm7-vacuum-jaw": ["clear_bin", "unstack_tower"],
 }
 
 

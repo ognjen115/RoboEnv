@@ -1,0 +1,11 @@
+id: lab/sort-fruit-veg
+robot: lab/lab-xarm7-jaw-jaw
+instruction: put the fruits into the box on the left with the left arm and the vegetables into the box on the right
+  with the right arm, and return both arms to where they started
+seed: 1
+budget_mode: practice
+execution_mode: stepped
+stop_on_success: false
+backend_kwargs:
+  task_name: sort_fruit_veg
+  rig: lab-xarm7-jaw-jaw
