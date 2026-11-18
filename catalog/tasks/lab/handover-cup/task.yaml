@@ -1,7 +1,7 @@
 id: lab/handover-cup
 robot: lab/lab-xarm7-jaw-jaw
-instruction: pick up the cup with the left arm, hand it over to the right arm, and place it on the table in front
-  of the right arm
+instruction: pick up the cup with the left arm, hand it over to the right arm, and put it down on the table in front
+  of the right arm without spilling any of its content, and return both arms to where they started
 seed: 1
 budget_mode: practice
 execution_mode: stepped

@@ -1,7 +1,7 @@
 id: lab/pour-from-cup
 robot: lab/lab-xarm7-jaw-jaw
-instruction: pick up the cup using the right arm with the jaw gripper and pour the content of the cup into the black
-  box on the table
+instruction: with the right arm, pour the content of the cup into the black box and put the cup back down on the
+  table, and return the arm to where it started
 seed: 1
 budget_mode: practice
 execution_mode: stepped

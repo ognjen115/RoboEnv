@@ -1,6 +1,6 @@
 id: lab/close-drawer
 robot: lab/lab-xarm7-jaw-jaw
-instruction: close the drawer by grasping its golden knob with the left arm's gripper and pushing the drawer shut
+instruction: close the drawer by its golden knob with the left arm, and return the arm to where it started
 seed: 1
 budget_mode: practice
 execution_mode: stepped

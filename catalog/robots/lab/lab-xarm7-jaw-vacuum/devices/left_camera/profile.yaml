@@ -43,13 +43,13 @@ extrinsics:
     parent: left_arm
     parent_frame: flange
     rotation_xyzw:
-    - 0.0
-    - 0.0
-    - 0.0
-    - 1.0
+    - 0.006550025
+    - 0.001310005
+    - -0.699692672
+    - 0.714412728
     translation_m:
-    - 0.024
-    - 0.073
+    - 0.052
+    - 0.009
     - 0.02
   source: introspected
 access:
